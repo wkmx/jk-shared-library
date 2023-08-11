@@ -5,10 +5,7 @@ def start() {
     def gitServer = new GitServer()
 
     pipeline {
-        agent any
-        tools {
-            maven 'MAVEN_PATH'
-        }
+        // agent any
 
         options {
             disableConcurrentBuilds() // 禁止同时执行
