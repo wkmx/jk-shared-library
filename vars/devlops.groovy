@@ -61,20 +61,14 @@ def start() {
             stage('checkout from scm') {
                 steps {
                     script {
-                        FormatPrint.PrintMes("------ 拉取代码并获取git log ------", "green")
+                        println("------ 拉取代码并获取git log ------")
+                        print("${params.BRANCH_NAME}")
+                        print("${env}")
                         GitServer.CheckOutCode("${params.BRANCH_NAME}")
                     }
                 }
             }
 
-            stage('build') {
-                steps {
-                    script {
-                        FormatPrint.PrintMes("------ 正在打包 ------", "green")
-                        build.Build()
-                    }
-                }
-            }
         }
 
     }
